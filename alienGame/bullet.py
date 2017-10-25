@@ -11,7 +11,7 @@ class Bullet(Sprite):
         #在(0,0)处创建子弹，再设置正确位置
         self.rect = pygame.Rect(0,0,ai_settings.bullet_width,ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
-        ship.rect.top = ship.rect.top
+        self.rect.top = ship.rect.top
 
         #子弹位置
         self.y = float(self.rect.y)
@@ -27,3 +27,4 @@ class Bullet(Sprite):
 
     def draw_bullet(self):
         pygame.draw.rect(self.screen,self.color,self.rect)
+
