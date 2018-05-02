@@ -23,7 +23,7 @@ class Sender(object):
 
 	def send_mail(self):
 
-		if 0 == len(self.__recievers):
+		if not self.__recievers:
 			raise Exception('收件人不可为空')
 
 		message = MIMEText(self.__content, 'plain', 'utf-8')

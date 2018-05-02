@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.messagebox as messagebox
 import sys
 sys.path.append('..')
 from mail import sender
@@ -39,10 +40,22 @@ mail_content_label.place(x=70,y=85)
 mail_context_text.place(x=140,y=85)
 # 按钮
 
+
+
 def send_mail():
-	print("收件人：%s"%receive_input.get())
-	print("标题：%s"%mail_title_input.get())
-	print("内容：%s"%mail_context_text.get('0.0',tk.END))
+	# print("收件人：%s"%receive_input.get())
+	# print("标题：%s"%mail_title_input.get())
+	# print("内容：%s"%mail_context_text.get('0.0',tk.END))
+	if not receive_input.get().strip():
+		messagebox.showerror('提示', '收件人不可为空')
+		return
+	if not mail_title_input.get().strip():
+		messagebox.showerror('提示', '标题不可为空')
+		return
+	if not mail_context_text.get('0.0',tk.END).strip():
+		messagebox.showerror('提示', '内容不可为空')
+		return
+
 
 	sender.add_reciever(receive_input.get())
 	sender.set_title(mail_title_input.get())
