@@ -1,2 +1,2 @@
 from . import sender
-# from . import smtp_config
+from . import smtp_config

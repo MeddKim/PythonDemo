@@ -2,7 +2,7 @@ import smtplib
 
 from email.mime.text import MIMEText
 from email.header import Header
-from smtp_config import *
+from .smtp_config import *
 
 class Sender(object):
 
@@ -19,7 +19,7 @@ class Sender(object):
 		self.__config = smtp_config
 
 	def add_reciever(self,receiver):
-		self.__recievers.push(receiver)
+		self.__recievers.append(receiver)
 
 	def send_mail(self):
 

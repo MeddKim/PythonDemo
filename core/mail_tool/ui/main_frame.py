@@ -1,11 +1,11 @@
 import tkinter as tk
 import sys
 sys.path.append('..')
-import mail
+from mail import sender
 
 
 
-sender = mail.Sender()
+sender = sender.Sender()
 
 #主容器
 window = tk.Tk()
@@ -47,6 +47,8 @@ def send_mail():
 	sender.add_reciever(receive_input.get())
 	sender.set_title(mail_title_input.get())
 	sender.set_content(mail_context_text.get('0.0',tk.END))
+
+	sender.send_mail();
 def clear_input():
 	pass
 
@@ -56,7 +58,6 @@ clear_btn = tk.Button(window,text="重置",command=clear_input)
 send_btn.place(x=140,y=250)
 clear_btn.place(x=250,y=250)
 
-print(mail)
 
 window.mainloop()
 
