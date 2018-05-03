@@ -3,6 +3,7 @@ import tkinter.filedialog as fd
 
 class App(tk.Tk):
     def __init__(self):
+        """选择文件"""
         super().__init__()
         btn_file = tk.Button(self, text="Choose file",
                              command=self.choose_file)

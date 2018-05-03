@@ -1,6 +1,7 @@
 import tkinter as tk
 
 class App(tk.Tk):
+    """右键选项"""
     def __init__(self):
         super().__init__()
         self.menu = tk.Menu(self, tearoff=0)

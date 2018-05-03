@@ -1,6 +1,7 @@
 import tkinter as tk
 
 class About(tk.Toplevel):
+    """弹出顶层窗口"""
     def __init__(self, parent):
         super().__init__(parent)
         self.label = tk.Label(self, text="This is another window")

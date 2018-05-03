@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.messagebox as mb
 
 class App(tk.Tk):
+    """弹出框"""
     def __init__(self):
         super().__init__()
         btn_info = tk.Button(self, text="Show Info",

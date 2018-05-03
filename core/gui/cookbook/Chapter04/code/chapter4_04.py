@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.filedialog as fd
 
 class App(tk.Tk):
+    """保存输入框输入的文本到文件中"""
     def __init__(self):
         super().__init__()
         self.text = tk.Text(self, height=10, width=50)

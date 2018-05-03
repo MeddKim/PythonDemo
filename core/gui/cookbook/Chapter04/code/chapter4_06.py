@@ -1,6 +1,7 @@
 import tkinter as tk
 
 class App(tk.Tk):
+    """菜单"""
     def __init__(self):
         super().__init__()
         self.checked = tk.BooleanVar()

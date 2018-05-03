@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.messagebox as mb
 
 class App(tk.Tk):
+    """弹出消息框"""
     def __init__(self):
         super().__init__()
         self.create_button(mb.askyesno, "Ask Yes/No",

@@ -1,5 +1,6 @@
 import tkinter as tk
 class App(tk.Tk):
+     """不同条件下右键选项的失效"""
      def __init__(self):
          super().__init__()
          self.menu = tk.Menu(self, tearoff=0, postcommand=self.enable_selection)
