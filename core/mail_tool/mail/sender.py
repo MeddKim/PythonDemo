@@ -1,8 +1,8 @@
 import smtplib
-
 from email.mime.text import MIMEText
-from email.header import Header
+
 from .smtp_config import *
+
 
 class Sender(object):
 

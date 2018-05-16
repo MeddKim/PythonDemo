@@ -1,12 +1,16 @@
 import tkinter as tk
 import tkinter.messagebox as mb
+import sys
+sys.path.append("..")
 from mail import sender
+from common import common_utils
 
 class MailEditor(tk.Toplevel):
     """邮件编辑"""
     def __init__(self,parent):
         super().__init__(parent)
-        self.geometry('800x300')
+        self.geometry(common_utils.cal_center_str(self,800,300))
+        # self.geometry(800, 300)
         self.reciever_label = tk.Label(self,text="收件人")
         self.reciever_entry = tk.Entry(self)
         self.subject_label = tk.Label(self,text="标题")
@@ -26,17 +30,21 @@ class MailEditor(tk.Toplevel):
         self.send_btn.place(x=140, y=250)
         self.save_btn.place(x=250, y=250)
 
+        self.sender = sender.Sender()
     def send_mail(self):
         if not self.reciever_entry.get().strip():
             mb.askokcancel("消息","收件人不可为空")
             return
+        self.sender.add_reciever(self.reciever_entry.get())
         if not self.subject_entry.get().strip():
             mb.askokcancel("消息", "标题不可为空")
             return
+        self.sender.set_title(self.subject_entry.get())
         if not self.content_entry.get('0.0', tk.END).strip():
             mb.askokcancel("消息", "收件人不可为空")
             return
-
+        self.sender.set_content(self.content_entry.get('0.0', tk.END))
+        self.sender.send_mail();
     def save_mail(self):
         pass
 
